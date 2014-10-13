@@ -1,0 +1,22 @@
+<script type="text/javascript" src="diff.js"></script>
+<script type="text/javascript">
+
+// debug
+function lg(s) { console.log(s); }
+function showTable(t) {
+	for (var i = 0; i < t.length; ++i) {
+		lg(t[i]);
+	}
+}
+function showDiff(df) {
+	for (var i = 0, d; d = df[i]; ++i)
+		lg(d[0]+d[1]);
+}
+
+showDiff(diff(
+	//"XMJYAUZ",
+	//"MAJAWXUA"
+	"0123456789",
+	"07123345689"
+));
+</script>
