@@ -1,9 +1,13 @@
+/*
+	Mr21 - 1.0
+	https://github.com/Mr21/diff.js
+*/
+
 function diff(a, b) {
-	var	i, j,
-		line;
+	var i, j, line;
 	// create table
 	var tab = new Array(a.length + 1);
-	for (i = 0; i < tab.length; ++i) {
+	for (i = tab.length - 1; i >= 0; --i) {
 		tab[i] = new Array(b.length + 1);
 		tab[i][0] = 0;
 	}
@@ -32,8 +36,8 @@ function diff(a, b) {
 		seq.push(seqTmp[i]);
 	lg(seq);
 	// write the diff
-	var	iA = 0, iB = 0, iX = 0,
-		arr = [];
+	var iA = 0, iB = 0, iX = 0,
+	    arr = [];
 	while (iA < a.length || iB < b.length) {
 		if (a[iA] !== seq[iX])
 			arr.push(['-', a[iA++]]);
