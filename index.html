@@ -1,22 +1,32 @@
 <script type="text/javascript" src="diff.js"></script>
 <script type="text/javascript">
 
-// debug
-function lg(s) { console.log(s); }
-function showTable(t) {
-	for (var i = 0; i < t.length; ++i) {
-		lg(t[i]);
-	}
-}
+function lg(s) { return console.log(s), s; }
 function showDiff(df) {
-	for (var i = 0, d; d = df[i]; ++i)
-		lg(d[0]+d[1]);
+	for (var i = 0, d; d = df[i]; ++i) {
+		var s = !d[0]
+			? ' '
+			: d[0] > 0
+				? '+'
+				: '-';
+		lg('['+s+'] '+d[1]);
+	}
+	lg('-----------')
 }
 
 showDiff(diff(
-	//"XMJYAUZ",
-	//"MAJAWXUA"
-	"0123456789",
-	"07123345689"
+	"012",
+	"01"
 ));
+
+showDiff(diff(
+	"XMJYAUZ",
+	"MAJAWXUA"
+));
+
+showDiff(diff(
+	"thomas",
+	"misty thomas"
+));
+
 </script>
