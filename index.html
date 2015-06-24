@@ -6,6 +6,8 @@ table {
 }
 td:nth-child(1),
 td:nth-child(2) {
+	width: 20px;
+	text-align: right;
 	opacity: .4;
 }
 td {
@@ -16,6 +18,15 @@ td {
 .addition { font-weight: bold; }
 .deletion { background: rgba( 200, 100, 100, .5 ); }
 .addition { background: rgba( 220, 220, 150, .5 ); }
+
+pre:before {
+	content: " ";
+	opacity: .3;
+	margin-right: .5em;
+}
+.addition pre:before { content: "+"; }
+.deletion pre:before { content: "-"; }
+
 </style>
 
 <div id="log"></div>
@@ -35,13 +46,9 @@ function showDiff( diff ) {
 	for ( ; d = diff[ i ]; ++i ) {
 		html += '\
 			<tr class="'+ classes[ d[ 0 ] + 1 ] +'">\
-				<td>\
-					'+ (d[ 0 ] < +1 ? d[ 1 ] + 1 : "") +'\
-				</td><td>\
-					'+ (d[ 0 ] > -1 ? d[ 2 ] + 1 : "") +'\
-				</td><td>\
-					<pre>'+ d[ 3 ].replace( /</g, "&lt;" ) +'</pre>\
-				</td>\
+				<td>'+ (d[ 0 ] < +1 ? d[ 1 ] + 1 : "") +'</td>\
+				<td>'+ (d[ 0 ] > -1 ? d[ 2 ] + 1 : "") +'</td>\
+				<td><pre>'+ d[ 3 ].replace( /</g, "&lt;" ) +'</pre></td>\
 			</tr>\
 		';
 	}
@@ -81,6 +88,58 @@ showDiff(
 			'	printf("Hello %s!\\n", w);',
 			"	return 0;",
 			"}"
+		]
+	)
+);
+
+console.log(
+	arrayEquals(
+		diff(
+			"012 abc 789",
+			"012 defgh 789"
+		), [
+			[  0,  0,  0, "0" ],
+			[  0,  1,  1, "1" ],
+			[  0,  2,  2, "2" ],
+			[  0,  3,  3, " " ],
+			[ -1,  4, -1, "a" ],
+			[ -1,  5, -1, "b" ],
+			[ -1,  6, -1, "c" ],
+			[ +1, -1,  4, "d" ],
+			[ +1, -1,  5, "e" ],
+			[ +1, -1,  6, "f" ],
+			[ +1, -1,  7, "g" ],
+			[ +1, -1,  8, "h" ],
+			[  0,  7,  9, " " ],
+			[  0,  8, 10, "7" ],
+			[  0,  9, 11, "8" ],
+			[  0, 10, 12, "9" ]
+		]
+	)
+);
+
+console.log(
+	arrayEquals(
+		diff(
+			"012 defgh 789",
+			"012 abc 789"
+		), [
+			[  0,  0,  0, "0" ],
+			[  0,  1,  1, "1" ],
+			[  0,  2,  2, "2" ],
+			[  0,  3,  3, " " ],
+			[ -1,  4, -1, "d" ],
+			[ -1,  5, -1, "e" ],
+			[ -1,  6, -1, "f" ],
+			[ -1,  7, -1, "g" ],
+			[ -1,  8, -1, "h" ],
+			[ +1, -1,  4, "a" ],
+			[ +1, -1,  5, "b" ],
+			[ +1, -1,  6, "c" ],
+			[  0,  9,  7, " " ],
+			[  0, 10,  8, "7" ],
+			[  0, 11,  9, "8" ],
+			[  0, 12, 10, "9" ]
 		]
 	)
 );
