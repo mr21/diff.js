@@ -58,10 +58,10 @@ function diff( a, b ) {
 	// write the diff
 	while ( iA < aLen && iB < bLen ) {
 		if ( a[ iA ] !== seq[ iX ] ) {
-			arr.push( [ -1, iA, null, a[ iA ] ] );
+			arr.push( [ -1, iA, -1, a[ iA ] ] );
 			++iA;
 		} else if ( b[ iB ] !== seq[ iX ] ) {
-			arr.push( [ +1, null, iB, b[ iB ] ] );
+			arr.push( [ +1, -1, iB, b[ iB ] ] );
 			++iB;
 		} else if ( a[ iA ] === b[ iB ] ) {
 			arr.push( [ 0, iA, iB, a[ iA ] ] );
@@ -71,10 +71,10 @@ function diff( a, b ) {
 		}
 	}
 	for ( ; iA < aLen; ++iA ) {
-		arr.push( [ -1, iA, null, a[ iA ] ] );
+		arr.push( [ -1, iA, -1, a[ iA ] ] );
 	}
 	for ( ; iB < bLen; ++iB ) {
-		arr.push( [ +1, null, iB, b[ iB ] ] );
+		arr.push( [ +1, -1, iB, b[ iB ] ] );
 	}
 
 
