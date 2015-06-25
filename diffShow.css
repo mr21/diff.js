@@ -1,0 +1,33 @@
+.diffjs {
+	width: 100%;
+	border-collapse: collapse;
+	font: 14px monospace;
+}
+
+.diffjs td {
+	padding-left: .5em;
+}
+.diffjs-line {
+	width: 1px;
+	text-align: right;
+	opacity: .4;
+}
+.diffjs-content {
+	padding-right: .5em;
+}
+
+.diffjs-deletion,
+.diffjs-addition { font-weight: bold; }
+.diffjs-deletion { background: rgba( 200, 100, 100, .5 ); }
+.diffjs-addition { background: rgba( 220, 220, 150, .5 ); }
+
+.diffjs pre {
+	margin: 0;
+}
+.diffjs pre:before {
+	content: " ";
+	opacity: .2;
+	margin-right: .5em;
+}
+.diffjs-addition pre:before { content: "+"; }
+.diffjs-deletion pre:before { content: "-"; }
