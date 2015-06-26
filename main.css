@@ -1,0 +1,77 @@
+html, body {
+	height: 100%;
+}
+body {
+	overflow-y: scroll;
+	margin: 0;
+	font: 12px sans-serif;
+}
+.hidden {
+	display: none !important;
+}
+
+
+
+.files,
+.submit {
+	color: #fff;
+	background: #88f;
+	}
+
+
+.files {
+	height: 500px;
+	height: 100%;
+	}
+	.file {
+		position: relative;
+		display: inline-block;
+		vertical-align: top;
+		width: 50%;
+		height: 100%;
+		}
+		b {
+			display: block;
+			padding: 4px;
+			}
+		textarea {
+			box-sizing: border-box;
+			position: absolute;
+			width: 100%;
+			left: 0;
+			top: 20px;
+			bottom: 0;
+			padding: 10px;
+			font-size: 11px;
+			margin: 0;
+			border: 0;
+			outline: 0;
+			resize: none;
+			}
+			.file:first-child textarea {
+				opacity: .8;
+			}
+
+
+
+.submit {
+	position: absolute;
+	left: 50%;
+	top: 100%;
+	width: 80px;
+	height: 80px;
+	margin: -100px 0 0 -40px;
+	border-radius: 50%;
+	}
+	.submit * {
+		position: absolute;
+		top: 18px;
+		left: 10px;
+		font-size: 32px;
+		}
+
+
+
+.diffOutput {
+	border-top: 5px solid rgba( 0, 0, 0, .2 );
+	}

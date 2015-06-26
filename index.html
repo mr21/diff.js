@@ -4,53 +4,45 @@
 	<title>diff.js</title>
 	<meta charset="utf-8"/>
 	<link rel="stylesheet" href="diffShow.css"/>
+	<link rel="stylesheet" href="main.css"/>
+	<script src="/_/jquery.js"></script>
 	<script src="diff.js"></script>
-	<script src="tests.js"></script>
 	<script src="diffShow.js"></script>
+	<script src="main.js"></script>
+	<script src="tests.js"></script>
 </head>
 <body>
 
-	<div id="log"></div>
+	<div class="files">
+		<div class="file">
+			<b>File A</b>
+<textarea>
+int main( void ) {
+	char * w = "World";
+	printf( "Hello %s!\n" );
+	return 0;
+}
+</textarea>
+		</div
+		><div class="file">
+			<b>File B</b>
+<textarea>
+#include <stdio>
 
-	<script>
+int main( void ) {
+	char * w = "World";
+	printf( "Hello %s!\n", w );
+	return 0;
+}
+</textarea>
+		</div>
+	</div>
 
-	var
-		log = document.getElementById( "log" )
-	;
+	<a class="submit" href="#">
+		<b>diff</b>
+	</a>
 
-	function arrayEquals( a, b ) {
-		if ( a === b ) {
-			return true;
-		}
-		if ( a.length === b.length && a.length !== undefined ) {
-			for ( var i = a.length - 1; i >= 0; --i ) {
-				if ( !arrayEquals( a[ i ], b[ i ] ) ) {
-					console.log(i + ": " + a[ i ] + " !== " + b[ i ]);
-					return false;
-				}
-			}
-			return true;
-		}
-		return false;
-	}
-
-	log.appendChild(diffShow(diff([
-		"int main( void ) {",
-		'	char * w = "World";',
-		'	printf("Hello %s!\\n");',
-		"	return 0;",
-		"}"
-	], [
-		"#include <stdio.h>",
-		"",
-		"int main( void ) {",
-		'	char * w = "World";',
-		'	printf("Hello %s!\\n", w);',
-		"	return 0;",
-		"}"
-	])));
-
-	</script>
+	<div class="diffOutput hidden"></div>
 
 </body>
 </html>
