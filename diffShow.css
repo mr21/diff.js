@@ -16,18 +16,23 @@
 	padding-right: .5em;
 }
 
-.diffjs-deletion,
-.diffjs-addition { font-weight: bold; }
-.diffjs-deletion { background: rgba( 200, 100, 100, .5 ); }
-.diffjs-addition { background: rgba( 220, 220, 150, .5 ); }
+tr.diffjs-deletion { background: rgba( 200, 100, 100, .4 ); }
+tr.diffjs-addition { background: rgba( 220, 220, 150, .4 ); }
 
-.diffjs pre {
-	margin: 0;
-}
-.diffjs pre:before {
-	content: " ";
-	opacity: .2;
+pre.diffjs-deletion,
+pre.diffjs-addition { font-weight: bold; }
+pre.diffjs-deletion { background: rgb( 200, 100, 100); }
+pre.diffjs-addition { background: rgb( 220, 220, 150); }
+
+.diffjs-content:before {
+	content: "\A0";
+	opacity: .35;
 	margin-right: .5em;
 }
-.diffjs-addition pre:before { content: "+"; }
-.diffjs-deletion pre:before { content: "-"; }
+.diffjs-addition .diffjs-content:before { content: "+"; }
+.diffjs-deletion .diffjs-content:before { content: "-"; }
+
+.diffjs pre {
+	display: inline;
+	margin: 0;
+}

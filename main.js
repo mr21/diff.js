@@ -12,11 +12,9 @@ $(function() {
 
 			jqDiffOutput
 				.html(
-					diffShow(
-						diff(
-							jqTextareas[ 0 ].value.split( /\n/ ),
-							jqTextareas[ 1 ].value.split( /\n/ )
-						)
+					diffCodesOutput(
+						jqTextareas[ 0 ].value,
+						jqTextareas[ 1 ].value
 					)
 				)
 				.removeClass( "hidden" )
