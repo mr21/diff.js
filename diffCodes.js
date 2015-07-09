@@ -1,3 +1,8 @@
+/*
+	Mr21 - diff.js
+	https://github.com/Mr21/diff.js
+*/
+
 function diffCodes( codeA, codeB ) {
 	var
 		d,
