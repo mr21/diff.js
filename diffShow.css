@@ -1,7 +1,7 @@
 .diffjs {
 	width: 100%;
 	border-collapse: collapse;
-	font: 14px monospace;
+	font-family: monospace;
 }
 
 .diffjs td {
