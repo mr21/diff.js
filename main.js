@@ -12,7 +12,7 @@ $(function() {
 
 			jqDiffOutput
 				.html(
-					diffCodesOutput(
+					diffCodes(
 						jqTextareas[ 0 ].value,
 						jqTextareas[ 1 ].value
 					)

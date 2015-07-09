@@ -1,4 +1,4 @@
-function diffCodesOutput( codeA, codeB ) {
+function diffCodes( codeA, codeB ) {
 	var
 		d,
 		d2,
