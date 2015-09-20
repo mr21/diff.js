@@ -3,15 +3,17 @@
 	https://github.com/Mr21/diff.js
 */
 
-function diff( a, b ) {
+function diff( arrA, arrB ) {
 
 	var
 		i,
 		j,
 		v,
 		line,
-		aLen = a.length,
-		bLen = b.length,
+		aLen = arrA.length,
+		bLen = arrB.length,
+		a = new Array( aLen ),
+		b = new Array( bLen ),
 		minLen = Math.min( aLen, bLen ),
 		beginPart,
 		beginPartLen,
@@ -24,6 +26,14 @@ function diff( a, b ) {
 		iB = 0,
 		iX
 	;
+
+	// copy the two array-like to use [].splice on it
+	for ( i = 0; i < aLen; ++i ) {
+		a[ i ] = arrA[ i ];
+	}
+	for ( i = 0; i < bLen; ++i ) {
+		b[ i ] = arrB[ i ];
+	}
 
 	// calcul the size of the identical begin part
 	for ( i = 0; i < minLen; ++i ) {

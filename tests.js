@@ -17,14 +17,10 @@ function arrayEquals( a, b ) {
 function test( a, b, expected ) {
 	var
 		isGood = arrayEquals(
-			diff(
-				a.split( "" ),
-				b.split( "" )
-			),
+			diff( a, b ),
 			expected
 		)
 	;
-
 	console.log( isGood, a, b );
 }
 
